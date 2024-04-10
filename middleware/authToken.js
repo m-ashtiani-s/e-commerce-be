@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../models/userModels");
 
 async function authTokenMiddleWare(req, res,next) {
-    console.log(req.cookies?.token)
 	try {
 		jwt.verify(req.cookies?.token, process.env.SECRET_KEY, (err, decode) => {
 			if (err) {

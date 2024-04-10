@@ -2,7 +2,7 @@ const userModel = require("../models/userModels");
 
 async function userRegisterController(req, res) {
 	try {
-		const { email, password, name } = req.body;
+		const { email, password, name,profilePic='' } = req.body;
 		if (!email) {
 			return res.status(500).json({
 				data: null,
@@ -27,9 +27,7 @@ async function userRegisterController(req, res) {
 				success: false,
 			});
 		}
-        console.log('user');
 		userModel.findOne({ email }).then((user) => {
-			console.log(user);
 			if (!!user) {
 				return res.status(500).json({
 					data: null,
@@ -44,6 +42,7 @@ async function userRegisterController(req, res) {
                 role:'GENERAL',
 				password,
 				name,
+                profilePic
 			}).save();
 
 			return res.status(201).json({

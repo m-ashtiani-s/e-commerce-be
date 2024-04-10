@@ -23,7 +23,6 @@ async function userLoginController(req, res) {
 		}
 		
 		userModel.findOne({ email }).then((user) => {
-            console.log("user");
 			if (!user) {
 				return res.status(500).json({
 					data: null,
@@ -59,7 +58,7 @@ async function userLoginController(req, res) {
                     secure: true
                 }
 
-				return res.cookie('tokenn',token,tokenOption).status(201).json({
+				return res.cookie('token',token,tokenOption).status(201).json({
 					data: {user,token},
 					massage: "successfully login",
 					error: false,
@@ -68,7 +67,6 @@ async function userLoginController(req, res) {
 			});
 		});
 	} catch (err) {
-        console.log(err)
 		res.json({
 			data: null,
 			massage: err,
