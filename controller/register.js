@@ -1,7 +1,6 @@
 const userModel = require("../models/userModels");
 
 async function userRegisterController(req, res) {
-	console.log("all is true");
 	try {
 		const { email, password, name } = req.body;
 		if (!email) {
@@ -28,7 +27,7 @@ async function userRegisterController(req, res) {
 				success: false,
 			});
 		}
-
+        console.log('user');
 		userModel.findOne({ email }).then((user) => {
 			console.log(user);
 			if (!!user) {
