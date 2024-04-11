@@ -6,7 +6,7 @@ async function userRegisterController(req, res) {
 		if (!email) {
 			return res.status(500).json({
 				data: null,
-				massage: "email is required",
+				message: "email is required",
 				error: true,
 				success: false,
 			});
@@ -14,7 +14,7 @@ async function userRegisterController(req, res) {
 		if (!password) {
 			return res.status(500).json({
 				data: null,
-				massage: "password is required",
+				message: "password is required",
 				error: true,
 				success: false,
 			});
@@ -22,7 +22,7 @@ async function userRegisterController(req, res) {
 		if (!name) {
 			return res.status(500).json({
 				data: null,
-				massage: "name is required",
+				message: "name is required",
 				error: true,
 				success: false,
 			});
@@ -31,7 +31,7 @@ async function userRegisterController(req, res) {
 			if (!!user) {
 				return res.status(500).json({
 					data: null,
-					massage: "email is existed",
+					message: "email is existed",
 					error: true,
 					success: false,
 				});
@@ -47,7 +47,7 @@ async function userRegisterController(req, res) {
 
 			return res.status(201).json({
                 data: {},
-                massage: "user created",
+                message: "user created",
                 error: true,
                 success: false,
             });
@@ -55,7 +55,7 @@ async function userRegisterController(req, res) {
 	} catch (err) {
 		res.json({
 			data: null,
-			massage: err,
+			message: err,
 			error: true,
 			success: false,
 		});

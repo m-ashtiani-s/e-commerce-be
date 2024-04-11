@@ -5,7 +5,7 @@ async function userDetailsController(req, res) {
         const user1=req.user
         res.json({
 			data: user1,
-			massage: '',
+			message: '',
 			error: false,
 			success: true,
 		})
@@ -13,7 +13,7 @@ async function userDetailsController(req, res) {
 	} catch (err) {
 		res.json({
 			data: null,
-			massage: err,
+			message: err,
 			error: true,
 			success: false,
 		});

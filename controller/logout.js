@@ -7,14 +7,14 @@ async function userLogoutController(req, res) {
 		res.clearCookie('token')
         res.json({
 			data: null,
-			massage: 'logout succesfully',
+			message: 'logout succesfully',
 			error: false,
 			success: true,
 		});
 	} catch (err) {
 		res.json({
 			data: null,
-			massage: err,
+			message: err,
 			error: true,
 			success: false,
 		});

@@ -8,7 +8,7 @@ async function userLoginController(req, res) {
 		if (!email) {
 			return res.status(500).json({
 				data: null,
-				massage: "email is required",
+				message: "email is required",
 				error: true,
 				success: false,
 			});
@@ -16,7 +16,7 @@ async function userLoginController(req, res) {
 		if (!password) {
 			return res.status(500).json({
 				data: null,
-				massage: "password is required",
+				message: "password is required",
 				error: true,
 				success: false,
 			});
@@ -26,7 +26,7 @@ async function userLoginController(req, res) {
 			if (!user) {
 				return res.status(500).json({
 					data: null,
-					massage: "user not found",
+					message: "user not found",
 					error: true,
 					success: false,
 				});
@@ -36,7 +36,7 @@ async function userLoginController(req, res) {
 				if (err) {
 					return res.status(500).json({
 						data: null,
-						massage: err,
+						message: err,
 						error: true,
 						success: false,
 					});
@@ -44,7 +44,7 @@ async function userLoginController(req, res) {
 				if (!isMatch) {
 					return res.status(500).json({
 						data: null,
-						massage: "user information is false",
+						message: "user information is false",
 						error: true,
 						success: false,
 					});
@@ -60,7 +60,7 @@ async function userLoginController(req, res) {
 
 				return res.cookie('token',token,tokenOption).status(201).json({
 					data: {user,token},
-					massage: "successfully login",
+					message: "successfully login",
 					error: false,
 					success: true,
 				});
@@ -69,7 +69,7 @@ async function userLoginController(req, res) {
 	} catch (err) {
 		res.json({
 			data: null,
-			massage: err,
+			message: err,
 			error: true,
 			success: false,
 		});

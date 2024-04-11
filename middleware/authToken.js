@@ -31,7 +31,7 @@ async function authTokenMiddleWare(req, res,next) {
 	} catch (err) {
 		res.json({
 			data: null,
-			massage: err,
+			message: err,
 			error: true,
 			success: false,
 		});
